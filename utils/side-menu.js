@@ -16,3 +16,22 @@ export const links = [
     pathname: "/contact",
   },
 ];
+
+export const adminlinks = [
+  {
+    title: "หน้าแรก",
+    pathname: "/heropage",
+  },
+  {
+    title: "สินค้า",
+    pathname: "/products",
+  },
+  {
+    title: "ความเป็นมา",
+    pathname: "/history",
+  },
+  {
+    title: "ติดต่อเรา",
+    pathname: "/contact",
+  },
+];

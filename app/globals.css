@@ -1,18 +1,110 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@layer base {
+  @font-face {
+    font-family: "ThaiSansNeue";
+    src: url("/public/OpenType/ThaiSansNeue-Regular.otf") format("otf");
+  }
+}
 @layer utilities {
+  iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
   .nav {
     @apply relative tracking-[1px] cursor-pointer w-fit;
   }
   .nav::after {
-    @apply content-[''] bg-primary h-[3px] w-[0%] left-0 -bottom-[5px] rounded-xl absolute duration-300;
+    @apply content-[''] bg-primary-500 h-[3px] w-[0%] left-0 -bottom-[5px] rounded-xl absolute duration-300;
   }
   .nav:hover::after {
     @apply w-[100%];
   }
   .nav-active {
-    @apply bg-primary text-primary w-fit;
+    @apply bg-primary-500 text-primary-500 w-fit;
+  }
+  .letter-spacing {
+    letter-spacing: 0.6em;
+    margin-right: -0.6em;
+  }
+  .header_catalog_text {
+    @apply flex letter-spacing items-center  select-none;
+  }
+  .header_catalog_text::before {
+    @apply left-9;
+  }
+  .link {
+    @apply relative  cursor-pointer outline-none p-0  font-normal;
+  }
+  .link::before {
+    @apply content-['']  absolute -bottom-[4px] bg-light-500  h-[2px] duration-150 rounded-full w-0;
+  }
+  .link:hover::before {
+    @apply w-[117px];
+  }
+
+  .fourdot {
+    height: 5px !important;
+    box-sizing: border-box;
+    @apply relative;
+  }
+  .fourdot__container {
+    @apply flex flex-col justify-between w-4 h-4 mr-5 transition-all;
+  }
+  .fourdot::before,
+  .fourdot::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    height: 5px;
+    width: 5px;
+    border-radius: 10px;
+    @apply bg-light-500;
+  }
+  .fourdot::before {
+    @apply left-0;
+  }
+  .fourdot::after {
+    @apply right-0;
+  }
+  .header_catalog_text:hover > .fourdot__container {
+    @apply rotate-[1080deg] duration-300;
+  }
+  .the_header_menu {
+    @apply relative cursor-pointer  w-6 h-6;
+  }
+  .the_header_menu::after,
+  .the_header_menu::before {
+    @apply content-[""] w-6 h-1 bg-light-500 absolute rounded-full left-4;
+  }
+  .the_header_menu::before {
+    top: 15px !important;
+    @apply translate-x-0;
+  }
+  .the_header_menu::after {
+    bottom: 15px !important;
+    @apply translate-x-0;
+  }
+  .parent {
+    @apply relative;
+  }
+  .parent:hover > .the_header_menu::before {
+    @apply translate-x-1 duration-300;
+  }
+  .parent:hover > .the_header_menu::after {
+    @apply -translate-x-1 duration-300;
+  }
+  .close_button {
+    @apply absolute left-7 top-8 w-[18px] h-[18px] rotate-45 cursor-pointer;
+  }
+  .close_button::before,
+  .close_button::after {
+    @apply absolute content-[""] top-0 left-0 h-1 w-full bg-light-500 rounded-full;
+  }
+
+  .close_button::after {
+    @apply rotate-90;
   }
 }
